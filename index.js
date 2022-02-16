@@ -4,8 +4,8 @@ const sharp = require("sharp");
 
 const s3 = new AWS.S3();
 
-const THUMBNAIL_WIDTH = 500;
-const MEDIUM_WIDTH = 900;
+const THUMBNAIL_WIDTH = parseInt(process.env.THUMBNAIL_WIDTH) || 500;
+const MEDIUM_WIDTH = parseInt(process.env.MEDIUM_WIDTH) || 900;
 
 exports.handler = async (event, context, callback) => {
 	console.log("Reading options from event:\n", util.inspect(event, { depth: 5 }));
